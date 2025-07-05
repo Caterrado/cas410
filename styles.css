@@ -1,0 +1,108 @@
+:root {
+  --green: #a8cbb7;
+  --blue: #a0d2eb;
+  --deep-green: #567d65;
+  --soft-blue: #d3ecef;
+  --neutral: #f4f6f5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--neutral);
+  line-height: 1.6;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: var(--soft-blue);
+  border-bottom: 2px solid var(--green);
+  transition: background-color 0.3s ease;
+}
+
+.site-header:hover {
+  background-color: #d8e9f1;
+}
+
+.logo {
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--deep-green);
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #3c5c4d;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--deep-green);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0077b6;
+  transform: translateY(-2px);
+}
+
+.hero {
+  background-color: #eaf7f1;
+  text-align: center;
+  padding: 100px 20px 80px;
+}
+
+.hero h1 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 2.75rem;
+  color: var(--deep-green);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.hero .cta-button {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  background-color: var(--green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero .cta-button:hover {
+  background-color: var(--deep-green);
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero .cta-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
