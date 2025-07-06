@@ -249,13 +249,59 @@
       box-shadow: none;
       display: block;
     }
+    
+    @media (max-width: 768px) {
+      header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 16px 10px;
+        gap: 0;
+      }
+      .logo {
+        margin-bottom: 0;
+        left: 0;
+        position: relative;
+      }
+      .nav-actions {
+        margin-left: auto;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+    }
 
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
         padding: 16px 10px;
-        gap: 12px;
+        gap: 0;
+        position: relative;
+      }
+      .logo {
+        order: 1;
+        margin-bottom: 0;
+        left: 0;
+      }
+      .nav-actions {
+        order: 2;
+        margin-left: 12px;
+        margin-bottom: 0;
+      }
+      .hamburger {
+        order: 3;
+        display: flex;
+        margin-left: auto;
+        margin-right: 0;
+      }
+      .nav-links {
+        order: 4;
+        width: 100vw;
+        left: 0;
+        top: 60px;
       }
 
       .logo {
@@ -332,15 +378,52 @@
         object-fit: cover;
         object-position: center;
       }
-    }
 
-    footer {
-      font-family: 'Avenir Next Arabic', 'Avenir Next', Montserrat, Arial, sans-serif;
-      text-align: center;
-      padding: 18px 0;
-      background: #fff;
-      color: #222;
-      font-size: 1rem;
+      /* Hamburger menu styles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        margin-right: 10px;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 28px;
+        height: 4px;
+        margin: 4px 0;
+        background: #000;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: #fff;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100vw;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+          z-index: 1000;
+          padding: 20px 0 10px 0;
+          gap: 18px;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+      }
     }
   </style>
 </head>
@@ -349,11 +432,6 @@
     <div class="logo">
       <img src="charitywaterlogo.png" alt="Charity: Water Logo" style="height: 48px;" />
     </div>
-    <nav class="nav-links">
-      <a href="#">TAKE ACTION</a>
-      <a href="#">ABOUT US</a>
-      <a href="#">WHY WATER?</a>
-    </nav>
     <div class="nav-actions">
       <a href="#">SIGN IN</a>
       <span class="nav-divider"></span>
@@ -382,8 +460,13 @@
       <img src="Girl Charity water picture.jpg" alt="Charity Water project photo" />
     </div>
   </section>
+
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  </script>
 </body>
 </html>
-<footer>
-  <p>Contact us: team@charitywater.org | Phone: 1 (646) 688-2323</p>
-</footer>
